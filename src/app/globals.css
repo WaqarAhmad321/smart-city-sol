@@ -1,0 +1,147 @@
+
+@import "react-leaflet-markercluster/dist/styles.min.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+@layer base {
+  :root {
+    /* New Blue-Centric Theme */
+    --background: 210 40% 98%; /* Very light cool gray */
+    --foreground: 210 10% 23%; /* Dark cool gray for text */
+
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 210 10% 23%;
+
+    --popover: 0 0% 100%; /* White */
+    --popover-foreground: 210 10% 23%;
+
+    --primary: 217 91% 60%; /* Vibrant Blue */
+    --primary-foreground: 0 0% 100%; /* White text on blue */
+
+    --secondary: 210 15% 94%; /* Light gray for secondary elements */
+    --secondary-foreground: 210 10% 30%;
+
+    --muted: 210 15% 88%; /* Slightly darker gray for muted elements */
+    --muted-foreground: 210 7% 45%;
+
+    --accent: 205 90% 70%; /* Lighter, slightly desaturated blue for accents */
+    --accent-foreground: 210 10% 15%; /* Dark text on accent */
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 210 20% 85%; /* Cool gray border */
+    --input: 210 20% 90%; /* Slightly lighter cool gray for input fields */
+    --ring: 217 91% 65%; /* Slightly brighter blue for focus rings */
+    
+    --chart-1: 217 91% 60%; /* Primary Blue */
+    --chart-2: 198 80% 55%; /* Cyan-Blue */
+    --chart-3: 230 70% 65%; /* Indigo-Blue */
+    --chart-4: 205 75% 50%; /* Steel Blue */
+    --chart-5: 210 30% 70%; /* Muted Blue-Gray */
+    --radius: 0.5rem;
+
+    /* Sidebar specific colors adjusted for the new theme */
+    --sidebar-background: 220 20% 99%; /* Very light, almost white, slightly cool */
+    --sidebar-foreground: 220 10% 25%; /* Dark gray text for sidebar */
+    --sidebar-primary: 217 91% 55%; /* Slightly deeper primary blue for active items in sidebar */
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 30% 90%; /* Light blue-gray for hover items in sidebar */
+    --sidebar-accent-foreground: 217 91% 50%; /* Primary blue for text on hover */
+    --sidebar-border: 210 20% 88%; /* Subtle border for sidebar */
+    --sidebar-ring: 217 91% 65%; /* Blue for focus rings in sidebar */
+  }
+
+  .dark {
+    --background: 220 15% 10%; /* Dark Slate Blue */
+    --foreground: 210 20% 90%; /* Light Gray */
+
+    --card: 220 15% 12%; /* Slightly lighter dark slate for cards */
+    --card-foreground: 210 20% 90%;
+
+    --popover: 220 15% 10%;
+    --popover-foreground: 210 20% 90%;
+
+    --primary: 217 91% 65%; /* Brighter Blue for dark mode */
+    --primary-foreground: 210 10% 10%; /* Dark text on primary */
+
+    --secondary: 220 15% 20%; /* Darker Gray */
+    --secondary-foreground: 210 20% 85%;
+
+    --muted: 220 15% 25%; /* Even Darker Gray */
+    --muted-foreground: 210 15% 65%;
+
+    --accent: 205 70% 55%; /* Brighter Accent Blue */
+    --accent-foreground: 0 0% 98%; /* White text on accent */
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 15% 28%; /* Muted border for dark */
+    --input: 220 15% 20%; /* Dark input */
+    --ring: 217 91% 70%; /* Bright Blue ring */
+    
+    --chart-1: 217 91% 65%;
+    --chart-2: 198 75% 60%;
+    --chart-3: 230 65% 70%;
+    --chart-4: 205 70% 55%;
+    --chart-5: 210 30% 60%;
+
+    /* Sidebar specific colors for dark mode */
+    --sidebar-background: 220 15% 12%; /* Dark background for sidebar */
+    --sidebar-foreground: 210 20% 85%; /* Light text */
+    --sidebar-primary: 217 91% 60%; /* Primary blue for active items */
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 22%; /* Darker hover */
+    --sidebar-accent-foreground: 217 91% 70%; /* Brighter blue text on hover */
+    --sidebar-border: 220 15% 18%;
+    --sidebar-ring: 217 91% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom Leaflet DivIcon base styles */
+.custom-leaflet-div-icon {
+  background-color: transparent !important;
+  border: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.issue-icon svg, .proposal-icon svg {
+  width: 28px;
+  height: 28px;
+  filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.3));
+}
+
+/* Example: Make issue icon have a blue fill, proposal icon have a green fill */
+/* These are illustrative; actual fill is set in map-view.tsx via style prop on SVG */
+/* .issue-icon svg { fill: hsl(var(--primary)); } */
+/* .proposal-icon svg { fill: hsl(var(--chart-2)); } */
+
+
+/* Fix for marker cluster loading placeholder if it appears inside the map container */
+.marker-cluster-loading-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000; /* Ensure it's above map tiles during load */
+  background: rgba(255, 255, 255, 0.8); /* Optional: semi-transparent overlay */
+}
