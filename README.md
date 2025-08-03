@@ -114,7 +114,7 @@ The AR component is primarily focused on enhancing data input and providing conc
 
 ### 1. Clone the Repository
 ```bash
-git clone [your-repository-url]
+git clone https://github.com/WaqarAhmad321/smart-city-sol
 cd citysync-dashboard 
 ```
 
@@ -125,27 +125,7 @@ npm install
 
 ### 3. Configure Firebase
 1.  Go to the [Firebase Console](https://console.firebase.google.com/) and create a new project (or use an existing one).
-2.  **Authentication**:
-    *   In your Firebase project, go to "Authentication" (Build section).
-    *   Click "Get started".
-    *   Enable "Email/Password" and "Google" as sign-in methods.
-3.  **Firestore Database**:
-    *   Go to "Firestore Database" (Build section).
-    *   Click "Create database".
-    *   Start in **Native mode**.
-    *   Choose a location for your database.
-    *   Copy the rules from `firestore.rules` in this project into the rules editor. **Publish these rules.**
-4.  **Storage**:
-    *   Go to "Storage" (Build section).
-    *   Click "Get started".
-    *   Follow the prompts to set up a Cloud Storage bucket.
-    *   Copy the rules from `storage.rules` in this project into the rules editor. **Publish these rules.**
-
-5.  **Get Firebase Configuration for Web App**:
-    *   In your Firebase project console, go to "Project settings" (gear icon near "Project Overview").
-    *   Scroll down to "Your apps".
-    *   If you don't have a web app, click the "Web" icon (`</>`) to add one. Give it a nickname.
-    *   Firebase will provide you with a `firebaseConfig` object. Copy these values.
+2.  Enable **Authentication**, **Firestore Database**, and **Storage**:
 
 ### 4. Environment Variables
 Create a `.env.local` file in the root of your project and add your Firebase configuration:
@@ -182,7 +162,7 @@ This starts the Genkit development flow server, usually on `http://localhost:340
 
 ### 6. Initial Admin User Setup
 1.  Open the application in your browser (e.g., `http://localhost:9002`).
-2.  Sign up a new user using the Email/Password or Google Sign-In option. This user will be created with the default 'citizen' role.
+2.  Sign up a new user using the Email/Password. This user will be created with the default 'citizen' role.
 3.  Go to your Firebase Console -> Firestore Database.
 4.  Find the `users` collection and locate the document for the user you just created (the document ID will be their Firebase Auth UID).
 5.  Manually edit the `role` field in this user's document from `"citizen"` to `"admin"`.
