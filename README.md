@@ -1,4 +1,7 @@
 # CitySync - Smart City Collaborative Dashboard
+![Hackathon Winner](https://img.shields.io/badge/Hackathon-Winner-%23FFD700?style=for-the-badge&logo=github)
+
+🏆 Winner of Technoverse Web-e-Thon 2025
 
 ## Overview
 CitySync is a web-based Smart City Collaborative Dashboard (SCCD) designed to enable municipal authorities, various city departments, and citizens to interact and collaborate in real time. This platform acts as a central hub for monitoring, reporting, decision-making, and analytics related to city operations, with an added focus on Augmented Reality (AR) concepts to enhance user interaction and data accuracy.
